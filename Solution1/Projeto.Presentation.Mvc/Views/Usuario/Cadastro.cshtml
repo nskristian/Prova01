@@ -1,0 +1,58 @@
+﻿@model Projeto.Presentation.Mvc.Models.UsuarioCadastroModel
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h1>Cadastro</h1>
+
+<div class="text-danger">
+    @Html.ValidationSummary()
+</div>
+
+
+@using (Html.BeginForm())
+{
+
+    <label>Nome completo:</label>
+    @Html.TextBoxFor(model => model.Nome,
+            new
+            {
+                @class = "form-control col-md-4",
+                @placeholder = "Digite aqui"
+            })
+    <br />
+    <label>Data Nascimento:</label>
+    @Html.TextBoxFor(model => model.DataNascimento,
+            new
+            {
+                @class = "form-control col-md-4",
+                @Type = "date"
+            })
+    <br />
+    <label>Nome de usuário:</label>
+    @Html.TextBoxFor(model => model.NomeUsuario,
+            new
+            {
+                @class = "form-control col-md-4",
+                @placeholder = "Digite aqui"
+            })
+    <br />
+    <label>Email:</label>
+    @Html.TextBoxFor(model => model.Email,
+            new
+            {
+                @class = "form-control col-md-4",
+                @placeholder = "Digite aqui"
+            })
+    <br />
+    <label>Senha:</label>
+    @Html.PasswordFor(model => model.Senha,
+            new
+            {
+                @class = "form-control col-md-4",
+                @placeholder = "Digite aqui"
+            })
+    <br />
+    <input type="submit" class="btn btn-success" value="Finalizar" />
+}

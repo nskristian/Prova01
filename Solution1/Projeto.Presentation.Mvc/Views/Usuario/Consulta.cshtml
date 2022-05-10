@@ -1,0 +1,35 @@
+﻿@model List<Projeto.Repository.Entities.Usuario>
+@{
+    ViewData["Title"] = "Consulta";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h5>Consulta de Usuários</h5>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>DataNascimento</th>
+            <th>Nome de usuario</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.DataNascimento.ToString("dd/MM/yyyy")</td>
+                <td>@item.NomeUsuario</td>
+                <td>@item.Email</td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Quantidade de usuarios: @Model.Count()</td>
+        </tr>
+    </tfoot>
+</table>
+
