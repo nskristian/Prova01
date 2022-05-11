@@ -30,12 +30,20 @@ namespace Projeto.Repository.Repositories
 
         public void Update(Usuario entity)
         {
-            throw new NotImplementedException();
+            var query = "update Usuario set Nome = @Nome, DataNascimento = @DataNascimento, NomeUsuario = @NomeUsuario, Email = @Email, Senha = @Senha where IdUsuario=@IdUsuario";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(query, entity);
+            }
         }
 
         public void Delete(Usuario entity)
         {
-            throw new NotImplementedException();
+            var query = "delete from Usuario where IdUsuario = @IdUsuario";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(query, entity);
+            }
         }
 
         public List<Usuario> GetAll()
@@ -49,7 +57,12 @@ namespace Projeto.Repository.Repositories
 
         public Usuario GetById(int id)
         {
-            throw new NotImplementedException();
+            var query = "select * from Usuario where IdUsuario = @IdUsuario";
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                return connection.QueryFirstOrDefault<Usuario>(query, new { IdUsuario = id });
+            }
         }
     }
 }

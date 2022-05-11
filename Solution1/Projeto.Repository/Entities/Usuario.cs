@@ -8,6 +8,7 @@ namespace Projeto.Repository.Entities
     {
         #region Propriedades
 
+        public int IdUsuario { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public string NomeUsuario { get; set; }

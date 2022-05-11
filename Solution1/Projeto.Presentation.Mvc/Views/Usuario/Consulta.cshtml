@@ -12,6 +12,7 @@
             <th>DataNascimento</th>
             <th>Nome de usuario</th>
             <th>Email</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,10 @@
                 <td>@item.DataNascimento.ToString("dd/MM/yyyy")</td>
                 <td>@item.NomeUsuario</td>
                 <td>@item.Email</td>
+                <td>
+                    <a href="/Usuario/Edicao?id=@item.IdUsuario" class="btn btn-primary btn-sm">Atualizar</a>
+                    <a href="/Usuario/Exclusao?id=@item.IdUsuario" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir este Usuário?');">Excluir</a>
+                </td>
             </tr>
         }
 
